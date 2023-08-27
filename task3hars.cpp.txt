@@ -1,0 +1,81 @@
+#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main(){
+    vector<pair<string,string>>h;
+     int n;
+     cout<<"How many task you want to add";
+     cin>>n;
+     for(int i=1;i<=n;i++)
+     {
+        string task;
+        cout<<"Enter your task :-";
+        cin>>task;
+        string status;
+        cout<<"Enter your status(completed or not ):- ";
+        cin>>status;
+        h.push_back(make_pair(task,status));
+     }
+     harsh:
+     cout<<"Three option:"<<endl;
+     cout<<"1)WHANT TO REMOVE ANY TASK"<<endl;
+     cout<<"2)WHANT TO SEE THE UPDATE FILE?"<<endl;
+     cout<<"3)WHANT TO MARK ANY TASK DONE?"<<endl;
+    cout<<"Enter any option in show , mark as done , remove any task which u want!"<<endl;
+    cout<<"Enter the string"<<endl;
+    string t;
+    cin>>t;
+    if(t=="show"){
+        for(auto i:h){
+            cout<<i.first<<" "<<i.second<<endl;
+        }
+    }
+   else if(t=="markcompeleted"){
+        cout<<"enter the task which u want to compelete?"<<endl;
+        string p;
+        cin>>p;
+        for(int i=0;i<h.size();i++){
+            if(h[i].first==p){
+                string temp="done";
+                h[i].second=temp;
+                break;
+            }
+        }
+    }
+   else if(t=="remove"){
+    cout<<"which u want to remove task?"<<endl;
+    string temp2;
+    cin>>temp2;
+    for(int i=0;i<h.size();i++){
+        if(h[i].first==temp2){
+            h.erase(h.begin()+i);
+            break;
+        }
+    }
+   }
+   else{
+     int q;
+     cout<<"How many task you want to add";
+     cin>>q;
+     for(int i=1;i<=q;i++)
+     {
+        string task;
+        cout<<"Enter your task :-";
+        cin>>task;
+        string status;
+        cout<<"Enter your status(completed or not ):- ";
+        cin>>status;
+        h.push_back(make_pair(task,status));
+   }
+   }
+   cout<<"user you want to show,or anything then click 1"<<endl;
+   int val;
+   cin>>val;
+if(val==1){
+    goto harsh;
+} 
+    return 0;
+
+}
